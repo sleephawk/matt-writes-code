@@ -1,0 +1,334 @@
+:root,
+body {
+  --30: orange;
+  --60: blue;
+  --10: antiquewhite;
+  --vs: #6a9953;
+  --vs-opacity: #6a995365;
+  color: var(--10);
+  background-color: rgb(18, 18, 18);
+  --red: solid 10px red;
+  --blue: solid 1px blue;
+  --green: solid 1px green;
+  font-family: "Forum", serif;
+  font-weight: 400;
+  letter-spacing: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-style: normal;
+  text-align: center;
+  --vs-font: "Cascadia Mono";
+
+  /* margin: 0;
+        padding: auto; */
+}
+
+a {
+  text-decoration: none;
+  color: var(--10);
+}
+
+h1 {
+  font-size: 3rem;
+  transform: scale(1);
+  text-align: center;
+}
+
+.codify {
+  font-family: var(--vs-font);
+  color: var(--vs);
+  font-size: 1.3rem;
+}
+
+.sub-page-main {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  justify-self: center;
+  justify-content: center;
+  align-self: center;
+  align-content: center;
+  clip-path: circle(50% at 50% 50%);
+  transition: clip-path 3s linear;
+  animation: clip-move 2s linear forwards;
+}
+
+/*if i build the page I can use the clip afterwards to knock around the page as desired*/
+@keyframes clip-move {
+  0% {
+    clip-path: circle(10% at 20% 67%);
+  }
+  25% {
+    clip-path: circle(10% at 20% 88%);
+  }
+  50% {
+    clip-path: circle(10% at 68% 0%);
+  }
+  75% {
+    clip-path: circle(10% at 68% 0%);
+  }
+  100% {
+    clip-path: circle(200% at 50% 50%);
+  }
+}
+
+/*======================================================*/
+/*Home Page
+/*======================================================*/
+
+#welcome-message-container {
+  background-color: black;
+  padding: 10px;
+  z-index: 2000;
+  width: 200px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  margin: 5px 0 0 20px;
+  transition: transform 1s linear, opacity 1s linear;
+}
+
+@media only screen and (min-width: 1080px) {
+  #welcome-message-container {
+    justify-self: flex-start;
+  }
+}
+
+.welcome-message,
+.instruction {
+  text-align: left;
+}
+
+.instruction {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/*Code Circle
+/*======================================================*/
+
+.circle-heading {
+  opacity: 0;
+  position: absolute;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  transform: scale(1) translate(-50%, -50%);
+  transition: transform 1s ease-in-out, opacity 1s linear;
+  font-size: 1.1rem;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.code-circle-wrapper {
+  --largest-circle: 600px;
+  --num-of-circles: 5;
+  position: absolute;
+  border-radius: 50%;
+  padding: 0;
+  margin: 0;
+  left: 50%;
+  top: 50%;
+  transform: scale(1);
+  filter: brightness(1);
+  transition: filter 0.2s linear, transform 0.2s ease-out;
+}
+
+.code-circle-hover-class:hover {
+  transform: scale(1.05) !important;
+  filter: brightness(2) !important;
+  cursor: pointer;
+}
+
+.code-circle {
+  position: absolute;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: rotate 90s linear infinite;
+}
+
+.code-circle:hover {
+  border: solid 3px var(--vs-opacity);
+}
+
+.code-circle-1 {
+  width: var(--largest-circle);
+}
+.code-circle-2 {
+  width: calc((var(--largest-circle) / var(--num-of-circles)) * 4);
+}
+
+.code-circle-3 {
+  width: calc((var(--largest-circle) / var(--num-of-circles)) * 3);
+}
+.code-circle-4 {
+  width: calc((var(--largest-circle) / var(--num-of-circles)) * 2);
+}
+.code-circle-5 {
+  width: calc(var(--largest-circle) / var(--num-of-circles));
+}
+
+.code-circle-1,
+.code-circle-3,
+.code-circle-5 {
+  animation-direction: reverse;
+}
+
+/*======================================================*/
+/* Title opening */
+/*======================================================*/
+
+#hero-title {
+  position: absolute;
+  font-family: "Cascadia Mono", sans-serif;
+  /* <weight>: Use a value from 200 to 700*/
+  color: var(--vs);
+  margin: 0 auto;
+  top: 50%;
+  transition: transform 2s linear, opacity 1.5s linear;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5rem;
+}
+
+@keyframes zoomUp {
+  from {
+    transform: translate(-50%, -50%);
+  }
+  to {
+    transform: translate(-50%, -500%);
+  }
+}
+
+.item {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(-10%);
+  transition: transform 7s ease-in-out, opacity 2s ease-in;
+}
+
+.code-animation-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+/*-----------------------------------------------------------------------------*/
+/* Test of home page content
+/*-----------------------------------------------------------------------------*/
+
+#home-page-content-container {
+  position: absolute;
+  width: 1000px;
+  height: 1000px;
+  background-color: blue;
+  transition: transform 1s ease-in-out;
+  transform: translateY(100vh);
+  z-index: 1000;
+}
+
+/*-----------------------------------------------------------------------------*/
+/* This code is for a rotating system if wanted or needed */
+/*-----------------------------------------------------------------------------*/
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.rotate-square {
+  position: absolute;
+  margin: 0 auto;
+  border: var(--red);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  animation: rotate 120s linear infinite;
+}
+
+.rotate-item {
+  border: var(--blue);
+  position: absolute;
+  animation: rotate 120s linear infinite reverse;
+}
+
+.rotate-item-1 {
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+.rotate-item-2 {
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+}
+.rotate-item-3 {
+  bottom: 0;
+  left: 0;
+  transform: translate(-50%, 50%);
+}
+.rotate-item-4 {
+  bottom: 0;
+  right: 0;
+  transform: translate(50%, 50%);
+}
+
+/*-----------------------------------------------------------------------------*/
+/*Dynamic Timer*/
+/*-----------------------------------------------------------------------------*/
+
+.dwt-heading {
+  font-family: "Press Start 2P", system-ui;
+  padding-bottom: 0;
+}
+
+.screenshot {
+  justify-self: center;
+  align-self: center;
+  max-width: 80%;
+  max-height: 20%;
+}
+
+iframe {
+  height: 400px;
+}
+
+@media only screen and (max-width: 1079px) {
+  .code-circle-wrapper {
+    --largest-circle: 300px;
+    position: relative;
+    top: 350px;
+    left: 0px;
+  }
+  h1 {
+    font-size: 1rem;
+  }
+  .code-circle-1 {
+    background-image: url(home.svg);
+  }
+  .code-circle-2 {
+    background-image: url(proj.svg);
+  }
+  .code-circle-3 {
+    background-image: url(time.svg);
+  }
+  .code-circle-4 {
+    background-image: url(gd.svg);
+  }
+  .code-circle-5 {
+    background-image: url(cmgmt.svg);
+  }
+}
