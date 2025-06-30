@@ -4,6 +4,7 @@ const homePage = document.getElementById("home-page");
 const codeAnimationContainer = document.querySelector(
   ".code-animation-container"
 );
+
 const numberOfItems = 40;
 const homePageContent = document.getElementById("home-page-content-container");
 
